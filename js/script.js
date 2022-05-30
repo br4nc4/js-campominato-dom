@@ -88,7 +88,6 @@ function renderGrid(totCells, bombsList){
 
 //------------------------------------------------------------------
 //informa l'utente che il gioco è finito
-    //mostrare ilo punteggio
     function alertGameOver(){
         alert("Game Over! hai totalizzato " + punteggio + " punti");
         
