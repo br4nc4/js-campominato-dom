@@ -1,3 +1,6 @@
+//Variabili Globali
+let punteggio = 0;
+let gameOver = false;
 //genera un array con 16 numeri random unici 
 //ogni numero rappresenta una bomba
 function generateBombsList(maxNumber, maxBombsNumber = 16){
@@ -32,9 +35,10 @@ function generateGrid (){
     renderGrid(totCells, bombsList);
 }
 
+generateGrid();
 //---------------------------------------------------------------
 
-//stampa in HTML la griglia
+//stampa in HTML la griglia e gli eventi legati al click sulle celle
 function renderGrid(totCells, bombsList){
     const gridContainer = document.getElementById("container-griglia");
     
@@ -51,5 +55,41 @@ function renderGrid(totCells, bombsList){
 
         //aggiungo la cella alla griglia
         gridContainer.append(cell);
+
+        //aggiungo l'eventListner click sulla cella
+        cell.addEventListener("click", function(){
+            const cellIndex = parseInt(this.dataset.indice);
+
+            cell.classList.add("clicked");
+
+            //controllo se il numero della cella cliccata fa parte della lista delle bonmbe
+            if(bombsList.includes(cellIndex)){
+                cell.classList.add("bomb");
+                gameOver = true;
+                informGameOver();
+            } else {
+                punteggio++;
+            }
+
+            //console.log("cliccato cella " + i);
+            console.log("cliccato cella " + cellIndex);
+
+            //controllo se la cella cliccata ha la classe bomb, non faccio nulla
+            if
+            (this.classList.contains("bomb") || //se la cella cliccata ha la classe bomb
+            this.classList.contains("clicked" || //se la cella è già stata cliccata
+            gameOver)){
+                //evito che il click faccia il suo corso
+                return;
+            }
+        })
     }
+
+}
+
+//------------------------------------------------------------------
+//informa l'utente che il gioco è finito
+    //mostrare ilo punteggio
+    function informGameOver(){
+        alert("Game Over! hai totalizzato " + punteggio + " punti");
 }
