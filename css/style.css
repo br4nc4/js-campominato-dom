@@ -1,0 +1,31 @@
+:root{
+    --cell-size: 50px;
+}
+
+#container-griglia{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(var(--cell-size) * 10);
+    height: calc(var(--cell-size) * 10);
+}
+
+
+.cell{
+    width:  var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.clicked{
+    color: white;
+    background-color:rgb(100,148,243);
+}
+
+.bomb{
+    color: white;
+    background-color: red;
+}
