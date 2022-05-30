@@ -59,7 +59,6 @@ function renderGrid(totCells, bombsList){
         //aggiungo l'eventListner click sulla cella
         cell.addEventListener("click", function(){
             const cellIndex = parseInt(this.dataset.indice);
-            
             //ogni volta che si clicca sulla cella si aggiunge la classe "clicked"
             cell.classList.add("clicked");
 
@@ -81,6 +80,7 @@ function renderGrid(totCells, bombsList){
                 //evito che il click faccia il suo corso
                 return;
             }
+
         })
     }
 
@@ -88,15 +88,12 @@ function renderGrid(totCells, bombsList){
 
 //------------------------------------------------------------------
 //informa l'utente che il gioco è finito
-    function alertGameOver(){
-        alert("Game Over! hai totalizzato " + punteggio + " punti");
-        
+function alertGameOver(){
+    alert("Game Over! hai totalizzato " + punteggio + " punti");
 }
 
 
-
-/* SUggerimento di Mattia
-per far diventare rosse tutte le caselle delle bombe 
-a gioco terminato */
-//const bombsList = Array.from(document.querySelectorAll(bomb))
+/* Suggerimento di Mattia
+per far diventare rosse tutte le caselle delle bombe a gioco terminato */
+//const bombsList = Array.from(document.querySelectorAll("bomb"))
 
