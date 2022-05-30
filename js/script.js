@@ -60,19 +60,18 @@ function renderGrid(totCells, bombsList){
         cell.addEventListener("click", function(){
             const cellIndex = parseInt(this.dataset.indice);
 
+            //ogni volta che si clicca sulla cella si aggiunge la classe "clicked"
             cell.classList.add("clicked");
 
             //controllo se il numero della cella cliccata fa parte della lista delle bonmbe
             if(bombsList.includes(cellIndex)){
                 cell.classList.add("bomb");
                 gameOver = true;
-                informGameOver();
+                alertGameOver();
             } else {
+                //fin tanto che non viene scoperta la bomba i punti vengono aumentano di uno in uno
                 punteggio++;
             }
-
-            //console.log("cliccato cella " + i);
-            console.log("cliccato cella " + cellIndex);
 
             //controllo se la cella cliccata ha la classe bomb, non faccio nulla
             if
@@ -90,6 +89,7 @@ function renderGrid(totCells, bombsList){
 //------------------------------------------------------------------
 //informa l'utente che il gioco è finito
     //mostrare ilo punteggio
-    function informGameOver(){
+    function alertGameOver(){
         alert("Game Over! hai totalizzato " + punteggio + " punti");
+        
 }
